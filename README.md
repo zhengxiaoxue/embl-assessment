@@ -4,7 +4,7 @@
 run the following command in your terminal
 ```
 cd embl-assessment
-docker build -t rest-api-docker
+docker build -t rest-api-docker .
 nohup docker run -p 8080:8080 rest-api-docker > rest-api.log 2>&1 &
 ```
 ## If you have JDK installed on your computer
