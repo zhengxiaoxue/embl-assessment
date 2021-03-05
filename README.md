@@ -22,7 +22,7 @@ run the following command in your terminal
 
  You will get the response like this:
  ```
-    {"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYxNDg2NDQ0NywiZXhwIjoxNjE0OTUwODQ3fQ.uxHvRKHJJimqTdjlHmDvPxuXT2CZNiVxTmvs6EZXHA0PnpBgMgcKZxcZPTXvoOSq-LYdrHnJsj6fgu7Z4GOe2w","userName":"admin","roles":["admin"]}
+{"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYxNDg2NDQ0NywiZXhwIjoxNjE0OTUwODQ3fQ.uxHvRKHJJimqTdjlHmDvPxuXT2CZNiVxTmvs6EZXHA0PnpBgMgcKZxcZPTXvoOSq-LYdrHnJsj6fgu7Z4GOe2w","userName":"admin","roles":["admin"]}
  ```
 
 ## Call the REST API
@@ -34,21 +34,21 @@ Replace "change_me" below with the token got from first step.
             "person": [
     {
         "firstName": "a",
-            "lastName": "b",
-            "age": 1,
-            "favouriteColor": "red"
+        "lastName": "b",
+        "age": 1,
+        "favouriteColor": "red"
     },
     {
         "firstName": "c",
-            "lastName": "d",
-            "age": 1,
-            "favouriteColor": "blue"
+        "lastName": "d",
+        "age": 1,
+        "favouriteColor": "blue"
     },
     {
         "firstName": "e",
-            "lastName": "f",
-            "age": 1,
-            "favouriteColor": "gree"
+        "lastName": "f",
+        "age": 1,
+        "favouriteColor": "gree"
     }
     ]
 }' "http://127.0.0.1:8080/v1/api/people"
@@ -62,16 +62,16 @@ Replace "change_me" below with the token got from first step.
     {	
     	"id": 3,
         "firstName": "aa",
-            "lastName": "bb",
-            "age": 2,
-            "favouriteColor": "green"
+        "lastName": "bb",
+        "age": 2,
+        "favouriteColor": "green"
     },
     {
     	"id": 4,
         "firstName": "cc",
-            "lastName": "dd",
-            "age": 2,
-            "favouriteColor": "green"
+        "lastName": "dd",
+        "age": 2,
+        "favouriteColor": "green"
     }
     ]
 }' "http://127.0.0.1:8080/v1/api/people"
@@ -88,10 +88,10 @@ Replace "change_me" below with the token got from first step.
 curl -H "Content-Type: application/json" -H "Authorization: Bearer change_me" -X DELETE "http://127.0.0.1:8080/v1/api/people/3"
 ```
 # Tech Stacks
-#### JAVA8
-#### H2 Database
-#### Spring Boot, Spring Security, Hibernate
-#### JWT
+* JAVA8
+* H2 Database
+* Spring Boot, Spring Security, Hibernate
+* JWT
 
 
 # Security
