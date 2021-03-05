@@ -1,21 +1,24 @@
 # How to Run
 
 ## If you have docker installed on your computer
-### run the following command
-#### cd embl-assessment
-#### docker build -t rest-api-docker .
-#### nohup docker run -p 8080:8080 rest-api-docker > rest-api.log 2>&1 &
-
+### run the following command in your terminal
+```
+cd embl-assessment
+docker build -t rest-api-docker
+nohup docker run -p 8080:8080 rest-api-docker > rest-api.log 2>&1 &
+```
 ## If you have JDK installed on your computer
-### run the following command
-#### cd embl-assessment
-#### nohup java -jar assessment-0.0.1.jar > rest-api.log 2>&1 &
-
+### run the following command in your terminal
+```
+ cd embl-assessment
+ nohup java -jar assessment-0.0.1.jar > rest-api.log 2>&1 &
+```
 
 # How to call the REST API
 ## Get the autherization token, attention: the server only has one user with username "admin" and password "admin"
-    curl -H "Content-Type: application/json" -X POST -d '{"username": "admin", "password":"admin"}' "http://localhost:8080/v1/api/auth"
-
+ ```
+  curl -H "Content-Type: application/json" -X POST -d '{"username": "admin", "password":"admin"}' "http://localhost:8080/v1/api/auth"
+```
     You will get the response like this:
     {"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYxNDg2NDQ0NywiZXhwIjoxNjE0OTUwODQ3fQ.uxHvRKHJJimqTdjlHmDvPxuXT2CZNiVxTmvs6EZXHA0PnpBgMgcKZxcZPTXvoOSq-LYdrHnJsj6fgu7Z4GOe2w","userName":"admin","roles":["admin"]}
 
@@ -23,6 +26,7 @@
 
 ### Create Person Entity
 Replace "change_me" below with the token got from first step.
+```
     curl -H "Content-Type: application/json" -H "Authorization: Bearer change_me" -X POST -d '{
             "person": [
     {
@@ -45,10 +49,11 @@ Replace "change_me" below with the token got from first step.
     }
     ]
 }' "http://127.0.0.1:8080/v1/api/people"
+```
 
 ### Update Person Entity
 Replace "change_me" below with the token got from first step.
-
+```
     curl -H "Content-Type: application/json" -H "Authorization: Bearer change_me" -X PUT -d '{
             "person": [
     {	
@@ -67,17 +72,18 @@ Replace "change_me" below with the token got from first step.
     }
     ]
 }' "http://127.0.0.1:8080/v1/api/people"
+```
 
 ### Search Person Entitiy
 Replace "change_me" below with the token got from first step.
-
+```
 curl -H "Content-Type: application/json" -H "Authorization: Bearer change_me" "http://127.0.0.1:8080/v1/api/people?firstname=John&lastname=Keynes"
-
+```
 ### Delete Person Entity
 Replace "change_me" below with the token got from first step.
-
+```
 curl -H "Content-Type: application/json" -H "Authorization: Bearer change_me" -X DELETE "http://127.0.0.1:8080/v1/api/people/3"
-
+```
 # Tech Stacks
 #### JAVA8
 #### H2 Database
