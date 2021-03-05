@@ -26,36 +26,50 @@ public class PersonController {
         this.personRepository = personRepository;
     }
 
-    //curl -H "Content-Type: application/json" -H "Authorization: Bearer " "http://127.0.0.1:8080/v1/api/people?firstname=John&lastname=Keynes"
+
+    /**
+     * Both firstname and lastname are required to query, and at most one person will be returned
+     * If the person not exit, empty will be returned other than 404 not found
+     *
+     *  curl -H "Content-Type: application/json" -H "Authorization: Bearer " "http://127.0.0.1:8080/v1/api/people?firstname=John&lastname=Keynes"
+     * @param firstName
+     * @param lastName
+     * @return
+     */
     @GetMapping
     public PersonResponse search(@RequestParam("firstname")String firstName, @RequestParam("lastname")String lastName){
         Person person = Person.builder().firstName(firstName).lastName(lastName).build();
         return new PersonResponse(objectMapper.convertValue(personRepository.findAll(Example.of(person)), new TypeReference<List<PersonRequest.PersonDTO>>(){}));
     }
 
+
     /**
-     curl -H "Content-Type: application/json" -H "Authorization: Bearer change_me" -X POST -d '{
-            "person": [
-    {
-        "firstName": "a",
-            "lastName": "b",
-            "age": 1,
-            "favouriteColor": "red"
-    },
-    {
-        "firstName": "c",
-            "lastName": "d",
-            "age": 1,
-            "favouriteColor": "blue"
-    },
-    {
-        "firstName": "e",
-            "lastName": "f",
-            "age": 1,
-            "favouriteColor": "gree"
-    }
-    ]
-}' "http://127.0.0.1:8080/v1/api/people"
+     * Support Batch create
+     *
+     * curl -H "Content-Type: application/json" -H "Authorization: Bearer change_me" -X POST -d '{
+     *             "person": [
+     *     {
+     *         "firstName": "a",
+     *             "lastName": "b",
+     *             "age": 1,
+     *             "favouriteColor": "red"
+     *     },
+     *     {
+     *         "firstName": "c",
+     *             "lastName": "d",
+     *             "age": 1,
+     *             "favouriteColor": "blue"
+     *     },
+     *     {
+     *         "firstName": "e",
+     *             "lastName": "f",
+     *             "age": 1,
+     *             "favouriteColor": "gree"
+     *     }
+     *     ]
+     * }' "http://127.0.0.1:8080/v1/api/people"
+     * @param request all fields except id are nessessary
+     * @return the created person with id
      */
     @PostMapping
     public PersonResponse create(@RequestBody @Validated(PersonCreateChecks.class) PersonRequest request){
@@ -64,6 +78,8 @@ public class PersonController {
     }
 
     /**
+     * Support Batch update
+     *
      * curl -H "Content-Type: application/json" -H "Authorization: Bearer change_me" -X PUT -d '{
      *             "person": [
      *     {
@@ -82,8 +98,8 @@ public class PersonController {
      *     }
      *     ]
      * }' "http://127.0.0.1:8080/v1/api/people"
-     * @param request
-     * @return
+     * @param request All fields include id are nessessary
+     * @return the updated person
      */
     @PutMapping
     public PersonResponse update(@RequestBody @Validated(PersonUpdateChecks.class) PersonRequest request){

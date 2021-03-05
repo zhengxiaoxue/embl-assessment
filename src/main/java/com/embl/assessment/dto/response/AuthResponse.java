@@ -4,6 +4,9 @@ import lombok.Data;
 
 import java.util.List;
 
+/**
+ * Authentication response
+ */
 @Data
 public class AuthResponse {
     private String token;

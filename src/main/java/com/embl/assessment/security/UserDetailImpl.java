@@ -6,6 +6,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;
 
+/**
+ *
+ * Server user implementation used by Spring security
+ *
+ */
 @Data
 public class UserDetailImpl implements UserDetails {
     public UserDetailImpl(String username, String password, List<? extends GrantedAuthority> authorities) {

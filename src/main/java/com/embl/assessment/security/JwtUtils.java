@@ -10,6 +10,9 @@ import org.springframework.util.StringUtils;
 
 import java.util.Date;
 
+/**
+ * Tool to validate and generate JWT token with secret key and expiration time
+ */
 @Component
 public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);

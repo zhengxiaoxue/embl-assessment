@@ -5,6 +5,9 @@ import lombok.Data;
 
 import javax.validation.constraints.NotNull;
 
+/**
+ * Used to request authentication token
+ */
 @Data
 @Builder
 public class AuthRequest {

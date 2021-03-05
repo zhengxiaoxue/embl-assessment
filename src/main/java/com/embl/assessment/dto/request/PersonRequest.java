@@ -12,6 +12,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+/**
+ * Request used to create or update person entity
+ */
 @Data
 @Builder
 @NoArgsConstructor

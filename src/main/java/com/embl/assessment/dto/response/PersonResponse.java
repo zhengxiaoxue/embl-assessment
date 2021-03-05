@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * The created or updated person
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

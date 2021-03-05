@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * Service provide use by username, used by Spring Security
+ */
 @Component
 public class UserDetailsServiceImpl implements UserDetailsService {
     private static final String USER_NAME = "admin";

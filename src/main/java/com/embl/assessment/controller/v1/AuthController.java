@@ -36,7 +36,12 @@ public class AuthController{
         this.encoder = encoder;
     }
 
-    //curl -H "Content-Type: application/json" -X POST -d '{"username": "admin", "password":"admin"}' "http://127.0.0.1:8080/v1/api/auth"
+    /**
+     *
+     *  Only username: admin passord: admin is allowed
+     *
+     *   curl -H "Content-Type: application/json" -X POST -d '{"username": "admin", "password":"admin"}' "http://127.0.0.1:8080/v1/api/auth"
+     */
     @PostMapping("")
     public AuthResponse authUser(@Validated @RequestBody AuthRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
