@@ -15,7 +15,7 @@ run the following command in your terminal
 ```
 
 # How to call the REST API
-## Get the autherization token, attention: the server only has one user with username "admin" and password "admin"
+## Get the autherization token, the server only allow one user with username "admin" and password "admin" for demo purpose, in real scenario, there should be a sign up step
  ```
   curl -H "Content-Type: application/json" -X POST -d '{"username": "admin", "password":"admin"}' "http://localhost:8080/v1/api/auth"
 ```
