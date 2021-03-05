@@ -100,12 +100,12 @@ Attention: The first call "Post /v1/api/auth with username and password" should 
 ![image](https://github.com/zhengxiaoxue/embl-assessment/blob/main/Authenticate%20Process.png)
 
 # Limitation
-1. These REST APIs are not well-connected. The client must use predefined rules to construct every URI it wants to visit. For example, the response of search API can inlude links of delete URI and update URI of the resource. The server can guide the client from one resource state to another by sending forms in its representations.
+1. These REST APIs are not well-connected. The client must use predefined rules to construct every URI it wants to visit. To solve this, the server can guide the client from one application state to another by sending links and forms in its representations. 
 
 2. Some clients may not support DELETE or PUT Http method. This can be resolved by using GET Http method and set the real Http action in query string like "/resource?_method=delete". 
 
 
-5. DELETE API doesn't support Batch operations. To support batch operation, we can expose a resource for every set of resources. And we also need combine Https Status and representations to tell clients the status of each resource.
+5. DELETE API doesn't support Batch operations. To support batch operation, we can expose a resource for every set of resources. And we also need to combine Https Status and representations to tell clients the status of each resource.
 
 4. Search API only support retrive entities with firstname and lastname. And in my design, firstname plus lastname form the unique index.
 
