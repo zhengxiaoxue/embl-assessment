@@ -21,7 +21,9 @@ nohup docker run -p 8080:8080 rest-api-docker > rest-api.log 2>&1 &
 ```
 
  You will get the response like this:
+ ```
     {"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYxNDg2NDQ0NywiZXhwIjoxNjE0OTUwODQ3fQ.uxHvRKHJJimqTdjlHmDvPxuXT2CZNiVxTmvs6EZXHA0PnpBgMgcKZxcZPTXvoOSq-LYdrHnJsj6fgu7Z4GOe2w","userName":"admin","roles":["admin"]}
+    ```
 
 ## Call the REST API
 
