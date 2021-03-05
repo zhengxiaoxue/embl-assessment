@@ -1,14 +1,14 @@
 # How to Run
 
 ## If you have docker installed on your computer
-### run the following command in your terminal
+run the following command in your terminal
 ```
 cd embl-assessment
 docker build -t rest-api-docker
 nohup docker run -p 8080:8080 rest-api-docker > rest-api.log 2>&1 &
 ```
 ## If you have JDK installed on your computer
-### run the following command in your terminal
+run the following command in your terminal
 ```
  cd embl-assessment
  nohup java -jar assessment-0.0.1.jar > rest-api.log 2>&1 &
@@ -23,7 +23,7 @@ nohup docker run -p 8080:8080 rest-api-docker > rest-api.log 2>&1 &
  You will get the response like this:
  ```
     {"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYxNDg2NDQ0NywiZXhwIjoxNjE0OTUwODQ3fQ.uxHvRKHJJimqTdjlHmDvPxuXT2CZNiVxTmvs6EZXHA0PnpBgMgcKZxcZPTXvoOSq-LYdrHnJsj6fgu7Z4GOe2w","userName":"admin","roles":["admin"]}
-    ```
+ ```
 
 ## Call the REST API
 
@@ -97,7 +97,7 @@ curl -H "Content-Type: application/json" -H "Authorization: Bearer change_me" -X
 # Security
 The Application that makes use of JWT authentication for securing an exposed REST API.
 Attention: The first call "Post /v1/api/auth with username and password" should be in Https protocol. The app use md5 to encode password, it is only for test usage, in real scenario, BCryptPasswordEncoder should be used
-
+![image](https://github.com/zhengxiaoxue/embl-assessment/blob/main/Authenticate%20Process.png)
 
 # Limitation
 1. These REST APIs are not well-connected. The client must use predefined rules to construct every URI it wants to visit. For example, the response of search API can inlude links of delete URI and update URI of the resource. The server can guide the client from one resource state to another by sending forms in its representations.
