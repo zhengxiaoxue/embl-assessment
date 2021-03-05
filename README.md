@@ -19,7 +19,8 @@ nohup docker run -p 8080:8080 rest-api-docker > rest-api.log 2>&1 &
  ```
   curl -H "Content-Type: application/json" -X POST -d '{"username": "admin", "password":"admin"}' "http://localhost:8080/v1/api/auth"
 ```
-    You will get the response like this:
+
+ You will get the response like this:
     {"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYxNDg2NDQ0NywiZXhwIjoxNjE0OTUwODQ3fQ.uxHvRKHJJimqTdjlHmDvPxuXT2CZNiVxTmvs6EZXHA0PnpBgMgcKZxcZPTXvoOSq-LYdrHnJsj6fgu7Z4GOe2w","userName":"admin","roles":["admin"]}
 
 ## Call the REST API
